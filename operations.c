@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+#include "history.c"
+
 void addition()
 {
     double a, b;
@@ -8,7 +10,12 @@ void addition()
     printf("\nPodaj dwie liczby: ");
 
     scanf("%lf %lf", &a, &b);
-    printf("Wynik: %lf + %lf = %lf\n", a, b, a + b);
+
+    char *str_operation;
+    asprintf(&str_operation, "%lf + %lf = %lf\n", a, b, a + b);
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 }
@@ -19,7 +26,12 @@ void subtraction()
     printf("\nPodaj dwie liczby: ");
 
     scanf("%lf %lf", &a, &b);
-    printf("Wynik: %lf - %lf = %lf\n", a, b, a - b);
+
+    char *str_operation;
+    asprintf(&str_operation, "%lf - %lf = %lf\n", a, b, a - b);
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 }
@@ -31,7 +43,12 @@ void multiplication()
 
     printf("\nPodaj dwie liczby: ");
     scanf("%lf %lf", &a, &b);
-    printf("Wynik: %lf * %lf = %lf\n", a, b, a * b);
+
+    char *str_operation;
+    asprintf(&str_operation, "%lf * %lf = %lf\n", a, b, a * b);
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 }
@@ -43,7 +60,12 @@ void division()
 
     printf("\nPodaj dwie liczby: ");
     scanf("%lf %lf", &a, &b);
-    printf("Wynik: %lf / %lf = %lf\n", a, b, a / b);
+
+    char *str_operation;
+    asprintf(&str_operation, "%lf / %lf = %lf\n", a, b, a / b);
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 }
@@ -55,7 +77,12 @@ void modulo()
 
     printf("\nPodaj dwie liczby: ");
     scanf("%d %d", &a, &b);
-    printf("Wynik: %d %% %d = %d\n", a, b, a % b);
+
+    char *str_operation;
+    asprintf(&str_operation, "%d %% %d = %d\n", a, b, a % b);
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 };
@@ -73,7 +100,11 @@ void factorial()
         factorial = factorial * i;
     }
 
-    printf("Wynik: %d! = %d\n", a, factorial);
+    char *str_operation;
+    asprintf(&str_operation, "%d! = %d\n", a, factorial);
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 };
@@ -84,7 +115,12 @@ void absValue()
 
     printf("\nPodaj liczbe: ");
     scanf("%d", &a);
-    printf("Wynik: |%d| = %d\n", a, abs(a));
+
+    char *str_operation;
+    asprintf(&str_operation, "|%d| = %d\n", a, abs(a));
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 };
@@ -95,7 +131,12 @@ void power()
 
     printf("\nPodaj dwie liczby (podstawa, wykladnik): ");
     scanf("%lf %lf", &a, &b);
-    printf("Wynik: %lf^%lf = %lf\n", a, b, pow(a, b));
+
+    char *str_operation;
+    asprintf(&str_operation, "%lf^%lf = %lf\n", a, b, pow(a, b));
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 };
@@ -106,7 +147,12 @@ void logarithm10()
 
     printf("\nPodaj liczbe: ");
     scanf("%lf", &a);
-    printf("Wynik: log10(%lf) = %lf\n", a, log10(a));
+
+    char *str_operation;
+    asprintf(&str_operation, "log10(%lf) = %lf\n", a, log10(a));
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 };
@@ -117,7 +163,12 @@ void squareroot()
 
     printf("\nPodaj liczbe: ");
     scanf("%lf", &a);
-    printf("Wynik: %lf^0.5 = %lf\n", a, sqrt(a));
+
+    char *str_operation;
+    asprintf(&str_operation, "%lf^0.5 = %lf\n", a, sqrt(a));
+    printf("Wynik: %s", str_operation);
+    update_history(str_operation);
+    free(str_operation);
 
     printf("\n------------------------\n");
 };

@@ -3,31 +3,19 @@
 #include <string.h>
 
 #include "operations.c"
-
-void help()
-{
-    printf("\n'+' - dodawanie");
-    printf("\n'-' - odejmowanie");
-    printf("\n'*' - mnozenie");
-    printf("\n'/' - dzielenie");
-    printf("\n'%%' - modulo");
-    printf("\n'!' - silnia");
-    printf("\n'abs' - wartosc calkowita");
-    printf("\n'pow' - potegowanie");
-    printf("\n'log' - logarytm dziesietny");
-    printf("\n'sqrt' - pierwiastek kwadratowy");
-    printf("\n'help' - wyswietl dozwolone operacje");
-    printf("\n'exit' - wyjdz\n");
-}
+#include "help.c"
 
 int main()
 {
+    printf("KALKULATOR");
+    help();
+
     char operation[10];
     while (1)
     {
 
         printf("\nOperacja: ");
-        scanf(" %s", operation);
+        scanf(" %10s", operation);
 
         if (!strcmp(operation, "help"))
         {
@@ -77,9 +65,17 @@ int main()
         {
             squareroot();
         }
+        else if (!strcmp(operation, "history"))
+        {
+            read_history();
+        }
+        else if (!strcmp(operation, "delete"))
+        {
+            delete_history();
+        }
         else
         {
-            printf("\nNie prawidlowa operacja '%s'.\nWywolaj <help> zeby zobaczyc dostepne operacje.\n", operation);
+            printf("\nNieprawidlowa operacja '%s'.\nWywolaj <help> zeby zobaczyc dostepne operacje.\n", operation);
         }
     }
 
